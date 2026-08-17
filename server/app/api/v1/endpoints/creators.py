@@ -29,6 +29,24 @@ async def list_creators(
     return creators
 
 
+@router.get("/categories", response_model=List[str])
+async def list_creator_categories(
+    db: AsyncSession = Depends(get_db),
+):
+    """
+    List all distinct categories used across active creator profiles.
+    """
+    stmt = (
+        select(CreatorProfile.category)
+        .where(CreatorProfile.is_active == True)
+        .group_by(CreatorProfile.category)
+        .order_by(CreatorProfile.category)
+    )
+    result = await db.execute(stmt)
+    categories = [cat for cat in result.scalars().all() if cat]
+    return categories
+
+
 @router.get("/{creator_id}", response_model=CreatorProfileResponse)
 async def get_creator(
     creator_id: str,
