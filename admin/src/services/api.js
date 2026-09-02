@@ -89,7 +89,7 @@ export async function getCurrentUser() {
 // ─── Creators Endpoints ──────────────────────────────────────────────────────
 
 export async function getCreators() {
-  return await fetchWithAuth(`${API_BASE_URL}/creators/`);
+  return await fetchWithAuth(`${API_BASE_URL}/creators`);
 }
 
 export async function getCreatorById(id) {
@@ -138,11 +138,11 @@ export async function setCreatorAvailabilityRulesAdmin(creatorId, rules) {
 // ─── Appointments Endpoints ──────────────────────────────────────────────────
 
 export async function getAppointments() {
-  return await fetchWithAuth(`${API_BASE_URL}/appointments/`);
+  return await fetchWithAuth(`${API_BASE_URL}/appointments`);
 }
 
 export async function createAppointment(creatorId, startTimeUtc, notes = '') {
-  return await fetchWithAuth(`${API_BASE_URL}/appointments/`, {
+  return await fetchWithAuth(`${API_BASE_URL}/appointments`, {
     method: 'POST',
     body: JSON.stringify({ creator_id: creatorId, start_time_utc: startTimeUtc, notes }),
   });

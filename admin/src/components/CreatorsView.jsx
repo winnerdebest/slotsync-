@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { UserCheck, Tag, DollarSign, Search, Database, Clock, Globe, Edit3 } from 'lucide-react';
+import { Tag, DollarSign, Search, Database, Clock, Globe, Edit3 } from 'lucide-react';
 import EditCreatorModal from './EditCreatorModal';
 
 export default function CreatorsView({ creators = [], onCreatorUpdated }) {
@@ -24,7 +24,7 @@ export default function CreatorsView({ creators = [], onCreatorUpdated }) {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
         {/* Category Filter Pills */}
-        <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+        <div className="scrollable-filter-row">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -37,7 +37,7 @@ export default function CreatorsView({ creators = [], onCreatorUpdated }) {
         </div>
 
         {/* Search */}
-        <div style={{ position: 'relative', width: '240px' }}>
+        <div style={{ position: 'relative', width: '100%', maxWidth: '240px' }}>
           <Search size={16} style={{ position: 'absolute', left: '0.8rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-dim)' }} />
           <input 
             type="text" 

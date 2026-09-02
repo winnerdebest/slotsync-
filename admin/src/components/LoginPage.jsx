@@ -24,28 +24,12 @@ export default function LoginPage({ onLoginSuccess }) {
   };
 
   return (
-    <div style={{
-      width: '100%',
-      minHeight: '100vh',
-      background: '#f4f6fa',       /* design.md App Background */
-      display: 'flex',
-      fontFamily: "'Plus Jakarta Sans', 'Outfit', -apple-system, sans-serif",
-    }}>
+    <div className="login-page-container">
 
       {/* ─── LEFT HERO PANEL ─── */}
-      <div style={{
-        width: '48%',
-        background: 'linear-gradient(135deg, #4f46e5 0%, #6366f1 100%)', /* design.md Primary Accent Gradient */
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '3rem',
-        position: 'relative',
-        overflow: 'hidden',
-      }}>
+      <div className="login-hero-panel">
 
-        {/* Decorative circle rings (design.md "organic glowing vector loops overlay") */}
+        {/* Decorative circle rings */}
         <div style={{
           position: 'absolute', width: '520px', height: '520px', borderRadius: '50%',
           border: '60px solid rgba(255,255,255,0.06)',
@@ -91,13 +75,13 @@ export default function LoginPage({ onLoginSuccess }) {
             Admin Control Portal
           </p>
 
-          {/* Hero stat card (mirrors design.md hero metric card) */}
-          <div style={{
+          {/* Hero stat card */}
+          <div className="login-hero-stat-card" style={{
             marginTop: '3rem',
             background: 'rgba(255,255,255,0.12)',
             backdropFilter: 'blur(16px)',
             border: '1px solid rgba(255,255,255,0.2)',
-            borderRadius: '16px',             /* design.md card border-radius */
+            borderRadius: '16px',
             padding: '1.75rem 2rem',
             textAlign: 'left',
             boxShadow: '0 10px 30px rgba(0,0,0,0.15)',
@@ -128,15 +112,7 @@ export default function LoginPage({ onLoginSuccess }) {
       </div>
 
       {/* ─── RIGHT LOGIN PANEL ─── */}
-      <div style={{
-        flex: 1,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '3rem 2.5rem',
-        background: '#f4f6fa',               /* design.md App Background */
-      }}>
+      <div className="login-form-panel">
         <div style={{ width: '100%', maxWidth: '400px' }}>
 
           {/* Sign-In Card */}

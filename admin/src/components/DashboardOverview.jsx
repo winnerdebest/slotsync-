@@ -104,7 +104,7 @@ export default function DashboardOverview({
             </p>
           </div>
         ) : (
-          <div style={{ overflowX: 'auto' }}>
+          <div className="responsive-table-wrapper">
             <table className="consult-table">
               <thead>
                 <tr>

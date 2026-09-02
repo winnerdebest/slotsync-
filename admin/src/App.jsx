@@ -27,6 +27,7 @@ export default function App() {
   const [backendStatus, setBackendStatus] = useState('checking');
   const [loading, setLoading] = useState(true);
   const [currentUser, setCurrentUser] = useState(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const [creators, setCreators] = useState([]);
   const [appointments, setAppointments] = useState([]);
@@ -202,6 +203,8 @@ export default function App() {
         setActiveTab={setActiveTab}
         backendStatus={backendStatus}
         onLogout={handleLogout}
+        mobileOpen={isMobileMenuOpen}
+        onCloseMobile={() => setIsMobileMenuOpen(false)}
       />
       <div className="content-wrapper">
         <main className="center-column">
@@ -209,6 +212,7 @@ export default function App() {
             pageTitle={getPageTitle()}
             currentUser={currentUser}
             onLogout={handleLogout}
+            onToggleMobileMenu={() => setIsMobileMenuOpen((prev) => !prev)}
           />
           {renderActiveTabContent()}
         </main>

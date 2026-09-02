@@ -87,11 +87,12 @@ export default function AvailabilityView({ creators = [] }) {
                   justifyContent: 'space-between', padding: '1.1rem 1.5rem',
                   background: isOpen ? '#f8faff' : '#ffffff',
                   borderBottom: isOpen ? '1px solid var(--border-color)' : 'none',
+                  flexWrap: 'wrap', gap: '0.75rem',
                 }}
               >
                 <div 
                   onClick={() => toggleCreator(creator)}
-                  style={{ display: 'flex', alignItems: 'center', gap: '0.9rem', cursor: 'pointer', flex: 1 }}
+                  style={{ display: 'flex', alignItems: 'center', gap: '0.9rem', cursor: 'pointer', flex: '1 1 240px' }}
                 >
                   {/* Avatar */}
                   <div style={{
@@ -106,7 +107,7 @@ export default function AvailabilityView({ creators = [] }) {
                     <div style={{ fontWeight: 700, fontSize: '0.95rem', color: 'var(--text-main)' }}>
                       {creator.title || 'Creator Profile'}
                     </div>
-                    <div style={{ fontSize: '0.775rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '0.75rem', marginTop: '0.1rem' }}>
+                    <div style={{ fontSize: '0.775rem', color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '0.1rem', flexWrap: 'wrap' }}>
                       <span style={{ display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
                         <Clock size={11} /> {creator.slot_duration_minutes || 30} min slots
                       </span>

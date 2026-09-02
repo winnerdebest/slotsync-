@@ -1,10 +1,21 @@
 import React from 'react';
-import { ShieldCheck, Bell, LogOut } from 'lucide-react';
+import { ShieldCheck, Bell, Menu } from 'lucide-react';
 
-export default function Header({ pageTitle = "Admin Overview", currentUser, onLogout }) {
+export default function Header({ pageTitle = "Admin Overview", currentUser, onLogout, onToggleMobileMenu }) {
   return (
     <header className="top-nav-bar">
-      <h1 className="top-page-title">{pageTitle}</h1>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+        {/* Mobile Navigation Drawer Toggle */}
+        <button 
+          className="hamburger-toggle-btn" 
+          onClick={onToggleMobileMenu}
+          aria-label="Open Navigation Menu"
+        >
+          <Menu size={20} />
+        </button>
+
+        <h1 className="top-page-title">{pageTitle}</h1>
+      </div>
 
       <div className="header-right-tools">
         {/* Admin Badge */}
@@ -37,3 +48,4 @@ export default function Header({ pageTitle = "Admin Overview", currentUser, onLo
     </header>
   );
 }
+

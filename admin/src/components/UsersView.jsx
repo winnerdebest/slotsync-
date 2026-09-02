@@ -20,8 +20,8 @@ export default function UsersView({ users = [], onUserCreated }) {
       {/* Top Action Bar */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
         {/* Role Filter Pills */}
-        <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
-          <Shield size={16} style={{ color: '#4f46e5' }} />
+        <div className="scrollable-filter-row">
+          <Shield size={16} style={{ color: '#4f46e5', flexShrink: 0 }} />
           {['ALL', 'CLIENT', 'CREATOR', 'ADMIN'].map((role) => (
             <button
               key={role}
@@ -35,7 +35,7 @@ export default function UsersView({ users = [], onUserCreated }) {
 
         {/* Right Tools: Search & Create User Button */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
-          <div style={{ position: 'relative', width: '220px' }}>
+          <div style={{ position: 'relative', width: '100%', maxWidth: '220px' }}>
             <Search size={15} style={{ position: 'absolute', left: '0.8rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-dim)' }} />
             <input
               type="text"
@@ -67,7 +67,7 @@ export default function UsersView({ users = [], onUserCreated }) {
           </p>
         </div>
       ) : (
-        <div style={{ overflowX: 'auto' }}>
+        <div className="responsive-table-wrapper">
           <table className="consult-table">
             <thead>
               <tr>

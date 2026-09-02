@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calendar, CheckCircle2, XCircle, Search, Database, Clock, FileText } from 'lucide-react';
+import { CheckCircle2, XCircle, Search, Database } from 'lucide-react';
 
 export default function AppointmentsView({ appointments = [], onUpdateStatus }) {
   const [statusFilter, setStatusFilter] = useState('ALL');
@@ -20,7 +20,7 @@ export default function AppointmentsView({ appointments = [], onUpdateStatus }) 
     <div className="card-panel" style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
         {/* Status Filter Pills */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
+        <div className="scrollable-filter-row">
           {['ALL', 'CONFIRMED', 'PENDING', 'COMPLETED', 'CANCELLED', 'REJECTED'].map((status) => (
             <button
               key={status}
@@ -33,7 +33,7 @@ export default function AppointmentsView({ appointments = [], onUpdateStatus }) 
         </div>
 
         {/* Search */}
-        <div style={{ position: 'relative', width: '220px' }}>
+        <div style={{ position: 'relative', width: '100%', maxWidth: '220px' }}>
           <Search size={15} style={{ position: 'absolute', left: '0.8rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-dim)' }} />
           <input 
             type="text" 
@@ -56,7 +56,7 @@ export default function AppointmentsView({ appointments = [], onUpdateStatus }) 
           </p>
         </div>
       ) : (
-        <div style={{ overflowX: 'auto' }}>
+        <div className="responsive-table-wrapper">
           <table className="consult-table">
             <thead>
               <tr>

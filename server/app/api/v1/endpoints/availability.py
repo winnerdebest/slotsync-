@@ -59,6 +59,7 @@ async def set_creator_availability(
     return new_rules
 
 
+@router.get("", response_model=List[AvailabilityRuleResponse])
 @router.get("/me", response_model=List[AvailabilityRuleResponse])
 async def get_my_availability(
     current_user: User = Depends(get_current_user),
