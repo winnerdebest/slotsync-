@@ -9,7 +9,7 @@ import {
   RefreshControl 
 } from 'react-native';
 import { colors, radii } from '../../theme/colors';
-import { getMyAppointments } from '../../services/api';
+import { getCreatorAppointments } from '../../services/api';
 
 interface Props {
   currentUser: any;
@@ -28,7 +28,7 @@ export default function CreatorDashboardScreen({
 
   const fetchDashboardData = async () => {
     try {
-      const appts = await getMyAppointments();
+      const appts = await getCreatorAppointments();
       setAppointments(Array.isArray(appts) ? appts : []);
     } catch (err) {
       console.warn('Dashboard fetch error:', err);

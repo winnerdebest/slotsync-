@@ -10,7 +10,7 @@ import {
   Alert 
 } from 'react-native';
 import { colors, radii } from '../../theme/colors';
-import { getMyAppointments, updateAppointmentStatus } from '../../services/api';
+import { getCreatorAppointments, updateAppointmentStatus } from '../../services/api';
 
 const STATUS_FILTERS = ['ALL', 'PENDING', 'CONFIRMED', 'COMPLETED', 'CANCELLED'];
 
@@ -22,7 +22,7 @@ export default function CreatorAppointmentsScreen() {
 
   const fetchAppointments = async () => {
     try {
-      const data = await getMyAppointments();
+      const data = await getCreatorAppointments();
       setAppointments(Array.isArray(data) ? data : []);
     } catch (err) {
       console.warn('Fetch appointments error:', err);
